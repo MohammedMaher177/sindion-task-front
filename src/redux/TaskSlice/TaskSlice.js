@@ -6,7 +6,7 @@ const initialState = { loading: {}, tasks: [], error: {} };
 export const createTask = createAsyncThunk(
   "task/createTask",
   async (values, { rejectWithValue }) => {
-    console.log(values);
+    // console.log(values);
     return axiosInstance
       .post("/task", values)
       .then(({ data }) => data.task)
@@ -56,12 +56,12 @@ const taskSlice = createSlice({
         state.loading["getTasks"] = true;
       })
       .addCase(getAllTasks.fulfilled, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.loading["getTasks"] = false;
         state.tasks = payload;
       })
       .addCase(getAllTasks.rejected, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.loading["getTasks"] = false;
       })
       .addCase(createTask.pending, (state) => {
@@ -73,7 +73,7 @@ const taskSlice = createSlice({
         state.tasks.push(payload);
       })
       .addCase(createTask.rejected, (state, { payload }) => {
-        console.log(payload);
+        // console.log(payload);
         state.loading["createTask"] = false;
       })
       .addCase(deleteTask.pending, (state) => {
@@ -85,14 +85,14 @@ const taskSlice = createSlice({
       })
       .addCase(deleteTask.rejected, (state, { payload }) => {
         state.loading["deleteTask"] = false;
-        console.log(payload);
+        // console.log(payload);
       })
       .addCase(updateTask.pending, (state) => {
         state.loading["updateTask"] = true;
       })
       .addCase(updateTask.fulfilled, (state, { payload }) => {
         state.loading["updateTask"] = false;
-        console.log(payload);
+        // console.log(payload);
         state.tasks = state.tasks.map((el) => {
           if (el._id === payload._id) {
             el = payload;
@@ -103,7 +103,7 @@ const taskSlice = createSlice({
       })
       .addCase(updateTask.rejected, (state, { payload }) => {
         state.loading["updateTask"] = false;
-        console.log(payload);
+        // console.log(payload);
       });
   },
 });

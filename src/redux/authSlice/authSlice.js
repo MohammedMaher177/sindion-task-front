@@ -67,7 +67,6 @@ const authSlice = createSlice({
       state.error["sign_in"] = null;
     });
     builder.addCase(sign_in.fulfilled, (state, { payload }) => {
-      console.log(payload);
       state.error["sign_in"] = null;
       state.loading["sign_in"] = false;
       state.token = payload;

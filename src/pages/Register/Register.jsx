@@ -46,7 +46,6 @@ const Register = () => {
   const handleSubmit = async (values) => {
     const { payload } = await dispatch(sign_up(values));
     if (payload) {
-      console.log(payload);
       navigate("/");
     }
   };

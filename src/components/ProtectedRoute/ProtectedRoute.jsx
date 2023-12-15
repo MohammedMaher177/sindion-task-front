@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 export default function ProtectedRoute(props) {
   const { token } = useSelector(({ auth }) => auth);
-  console.log(token);
   if (token == null) {
     return <Navigate to={"/signin"} />;
   } else {

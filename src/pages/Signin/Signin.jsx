@@ -29,7 +29,6 @@ const Signin = () => {
   const handleSubmit = async (values) => {
     const { payload } = await dispatch(sign_in(values));
     if (payload) {
-      console.log(payload);
       navigate("/");
     }
   };
