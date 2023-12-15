@@ -1,5 +1,7 @@
 # REACT-SINDION-TASK
 
+![ADDA](https://res.cloudinary.com/divbski6g/image/upload/v1702658553/tasks/lpmbqpzpypio0rfmhhij.png)
+
 This Project is hosted in OnRender : [sindion-task-front](https://sindion-task-front.onrender.com/)
 
 # Getting Started
