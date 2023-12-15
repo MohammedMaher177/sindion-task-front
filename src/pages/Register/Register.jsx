@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { registerValidationSchema } from "../../util/util.js";
-// import { sign_up } from "../../redux/slices/authSlice/authActions.js";
 import { useDispatch, useSelector } from "react-redux";
 import FormComp from "../../components/Form/Form.jsx";
-import { sign_up } from "../../redux/authSlice/authSlice.js";
+// import { sign_up } from "../../redux/authSlice/authSlice.js";
 
 const inputs = [
   {
@@ -44,8 +43,8 @@ const Register = () => {
   };
 
   const handleSubmit = async (values) => {
-    const result = await dispatch(sign_up(values));
-    console.log(result);
+    // const result = await dispatch(sign_up(values));
+    // console.log(result);
   };
 
   return (
@@ -58,6 +57,7 @@ const Register = () => {
           validationSchema={registerValidationSchema}
           inputs={inputs}
           loading={loading["sign_up"]}
+          titleBtn={"Sign Up"}
         />
         <div className="flex gap-2 mt-5">
           <p>Have an account?</p>

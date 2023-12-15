@@ -1,10 +1,9 @@
 import React from "react";
-// import { sign_in } from "../../redux/slices/authSlice/authActions.js";
 import { useDispatch, useSelector } from "react-redux";
 import FormComp from "../../components/Form/Form.jsx";
 import { signInValidationSchema } from "../../util/util.js";
 import { Link } from "react-router-dom";
-import { sign_in } from "../../redux/authSlice/authSlice.js";
+// import { sign_in } from "../../redux/authSlice/authSlice.js";
 
 const inputs = [
   {
@@ -29,8 +28,8 @@ const Signin = () => {
   };
   const handleSubmit = async (values) => {
     console.log(values);
-    const result = await dispatch(sign_in(values));
-    console.log(result);
+    // const result = await dispatch(sign_in(values));
+    // console.log(result);
   };
   return (
     <div>
@@ -42,6 +41,7 @@ const Signin = () => {
           validationSchema={signInValidationSchema}
           inputs={inputs}
           loading={loading["sign_in"]}
+          titleBtn={"Sign In"}
         />
         <div className="flex gap-2 mt-5">
           <p>Haven't an account?</p>

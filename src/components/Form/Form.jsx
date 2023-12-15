@@ -7,6 +7,7 @@ export default function FormComp({
   validationSchema,
   inputs,
   loading,
+  titleBtn,
 }) {
   return (
     <Formik
@@ -48,7 +49,7 @@ export default function FormComp({
             disabled={!(dirty && isValid)}
             className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
-            {loading ? "Loading..." : "Sign Up"}
+            {loading ? "Loading..." : titleBtn}
           </button>
         </Form>
       )}
