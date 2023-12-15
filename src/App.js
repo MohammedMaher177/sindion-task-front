@@ -4,7 +4,7 @@ import AppRoutes from "./routes.js";
 import { useEffect } from "react";
 import { addAxiosHeader, removeAxiosHeader } from "./axios/axios-instance.js";
 import { getAllTasks } from "./redux/TaskSlice/TaskSlice.js";
-import { getUserToken } from "./redux/AuthSlice/AuthSlice.js";
+import { getUserToken } from "./redux/authSlice/authSlice.js";
 
 function App() {
   const dispatch = useDispatch();

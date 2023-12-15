@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../redux/AuthSlice/AuthSlice.js";
+import { logOut } from "../../redux/authSlice/authSlice.js";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FormComp from "../../components/Form/Form.jsx";
 import { signInValidationSchema } from "../../util/util.js";
 import { Link, useNavigate } from "react-router-dom";
-import { sign_in } from "../../redux/AuthSlice/AuthSlice.js";
+import { sign_in } from "../../redux/authSlice/authSlice.js";
 
 const inputs = [
   {

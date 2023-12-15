@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerValidationSchema } from "../../util/util.js";
 import { useDispatch, useSelector } from "react-redux";
 import FormComp from "../../components/Form/Form.jsx";
-import { sign_up } from "../../redux/AuthSlice/AuthSlice.js";
+import { sign_up } from "../../redux/authSlice/authSlice.js";
 
 const inputs = [
   {
