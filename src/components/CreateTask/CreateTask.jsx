@@ -3,6 +3,8 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import FormComp from "../Form/Form.jsx";
 import { createTaskValidation } from "../../util/util.js";
+import { useDispatch } from "react-redux";
+import { createTask, updateTask } from "../../redux/TaskSlice/TaskSlice.js";
 const inputs = [
   {
     type: "text",
@@ -16,16 +18,17 @@ const inputs = [
   },
 ];
 export default function CreateTask({ taskValues = null, titleBtn }) {
-  console.log(taskValues);
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const initialValues = taskValues || {
     title: "",
     description: "",
   };
   const handleSubmit = async (values) => {
-    console.log(values);
-    // const result = await dispatch(sign_up(values));
-    // console.log(result);
+    const { payload } = taskValues
+      ? await dispatch(updateTask(values))
+      : await dispatch(createTask(values));
+    payload && setOpen(false);
   };
   const cancelButtonRef = useRef(null);
   return (

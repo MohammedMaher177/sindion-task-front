@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerValidationSchema } from "../../util/util.js";
 import { useDispatch, useSelector } from "react-redux";
 import FormComp from "../../components/Form/Form.jsx";
+import { sign_up } from "../../redux/AuthSlice/AuthSlice.js";
 // import { sign_up } from "../../redux/authSlice/authSlice.js";
 
 const inputs = [
@@ -29,11 +30,12 @@ const inputs = [
 ];
 
 const Register = () => {
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const { loading } = useSelector(({ auth }) => auth);
+  const { loading, error, token } = useSelector(({ auth }) => auth);
 
   const initialValues = {
     email: "",
@@ -43,14 +45,20 @@ const Register = () => {
   };
 
   const handleSubmit = async (values) => {
-    // const result = await dispatch(sign_up(values));
-    // console.log(result);
+    const { payload } = await dispatch(sign_up(values));
+    if (payload) {
+      console.log(payload);
+      navigate("/");
+    }
   };
 
   return (
     <div>
       <div className="p-3 max-w-lg mx-auto">
         <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
+        {error["sign_up"] && (
+          <p className="text-red-500 mt-5">{error["sign_up"]}</p>
+        )}
         <FormComp
           handleSubmit={handleSubmit}
           initialValues={initialValues}
@@ -65,7 +73,6 @@ const Register = () => {
             <span className="text-blue-700">Sign in</span>
           </Link>
         </div>
-        {/* {error && <p className="text-red-500 mt-5">{error}</p>} */}
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
 import React from "react";
 import CreateTask from "../CreateTask/CreateTask.jsx";
 import DeletePopUp from "../DeletePopUp/DeletePopUp.jsx";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../redux/TaskSlice/TaskSlice.js";
 
 export default function TableRow({ Task }) {
+  const dispatch = useDispatch();
   const handleDelete = () => {
-    console.log(Task._id);
+    dispatch(deleteTask(Task._id));
   };
   return (
     <tr key={Task._id} className="p-4 border-b">
@@ -40,28 +43,19 @@ export default function TableRow({ Task }) {
       </td>
       <td className="p-4">
         <div className="flex items-center gap-3">
-          <div className="flex">
-            <span className="text-sm text-blue-gray font-normal">
-              <button className="text-sm flex gap-2 text-sm py-1 px-8 text-blue-600 p-4">
-                <CreateTask
-                  titleBtn="Edit"
-                  taskValues={{
-                    title: Task.title,
-                    description: Task.description,
-                    _id: Task._id,
-                  }}
-                />
-              </button>
-            </span>
-            <span className="text-sm text-blue-gray font-normal opacity-70">
-              <button
-                className="text-sm flex gap-2 text-sm py-1 px-8 text-red-600 p-4"
-                onClick={handleDelete}
-              >
-                <DeletePopUp />
-              </button>
-            </span>
-          </div>
+          <span className="text-sm text-blue-gray font-normal">
+            <CreateTask
+              titleBtn="Edit"
+              taskValues={{
+                title: Task.title,
+                description: Task.description,
+                _id: Task._id,
+              }}
+            />
+          </span>
+          <span className="text-sm text-blue-gray font-normal opacity-70">
+            <DeletePopUp handleDelete={handleDelete} />
+          </span>
         </div>
       </td>
     </tr>
