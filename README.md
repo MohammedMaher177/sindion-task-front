@@ -1,6 +1,42 @@
-# Getting Started with Create React App
+# REACT-SINDION-TASK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project is hosted in OnRender : [sindion-task-front](https://sindion-task-front.onrender.com/)
+
+# Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+Prerequisites
+Before you start, make sure you have the following software installed on your computer:
+
+Node.js
+npm (Node Package Manager)
+
+## How to use this Repository?
+
+1. Clone the repository to your local machine
+```bash
+  git clone https://github.com/MohammedMaher177/sindion-task-front.git
+
+```
+
+2. Navigate to the project directory
+
+```bash
+  cd sindion-task=front
+
+```
+3. Install the necessary dependencies
+```bash
+  npm install
+```
+
+4. Start the development server
+```bash
+  npm start
+```
+
+The server should now be up and running on http://localhost:3000.
+
 
 ## Available Scripts
 
