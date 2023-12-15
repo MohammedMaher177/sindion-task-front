@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import AppRoutes from "./routes.js";
 import { useEffect } from "react";
-import { getUserToken } from "./redux/AuthSlice/AuthSlice.js";
 import { addAxiosHeader, removeAxiosHeader } from "./axios/axios-instance.js";
 import { getAllTasks } from "./redux/TaskSlice/TaskSlice.js";
+import { getUserToken } from "./redux/AuthSlice/AuthSlice.js";
 
 function App() {
   const dispatch = useDispatch();
