@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home.jsx";
 import Signin from "./pages/Signin/Signin.jsx";
 import Register from "./pages/Register/Register.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 const AppRoutes = () => {
   const routes = createBrowserRouter([
@@ -11,10 +12,17 @@ const AppRoutes = () => {
       path: "/",
       element: <MainLayout />,
       children: [
-        {index: true, element: <Home />},
-        {path:"signin", element: <Signin />},
-        {path:"register", element: <Register />},
-        {path:"*", element: <NotFound />},
+        {
+          index: true,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
+        },
+        { path: "signin", element: <Signin /> },
+        { path: "register", element: <Register /> },
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);

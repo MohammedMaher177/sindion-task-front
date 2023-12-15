@@ -2,30 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateTask from "../../components/CreateTask/CreateTask.jsx";
 import TableRow from "../../components/TableRow/TableRow.jsx";
-// import { getAllTasks } from "../../redux/TaskSlice/TaskSlice.js";
-// import { getAllTasks } from "../../redux/TaskSlice/TaskSlice.js";
+import { getAllTasks } from "../../redux/TaskSlice/TaskSlice.js";
 
 const TABLE_HEAD = ["User", "Title", "Description", "Date", "Actions"];
-// const tasks = [
-//   {
-//     _id: "657b321517e46e2566d3838e",
-//     title: "Ahmed",
-//     description: "Ahmed@gmail.com",
-//     user: {
-//       _id: "657b1b36af03dffbd2c9235b",
-//       name: "Mohammed",
-//       email: "Mohammed@gmail.com",
-//     },
-//     createdAt: "2023-12-15T09:09:57.443Z",
-//     updatedAt: "2023-12-15T09:09:57.443Z",
-//     __v: 0,
-//   },
-// ];
+
 export default function Home() {
   const dispatch = useDispatch();
   const { tasks, loading } = useSelector(({ task }) => task);
   const getTasks = async () => {
-    // dispatch(getAllTasks());
+    dispatch(getAllTasks());
   };
 
   useEffect(() => {
@@ -58,8 +43,8 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task) => (
-                <TableRow Task={task} key={task._id} />
+              {tasks?.map((task) => (
+                <TableRow Task={task} key={task?._id} />
               ))}
             </tbody>
           </table>
