@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
-export const baseUrl = `http://localhost:3001/api/v1/`;
+// export const baseUrl = `http://localhost:3001/api/v1/`;
+export const baseUrl = `https://sindion-task-back.onrender.com/api/v1/`;
 
 const getCharacterValidationError = (str) => {
   return `It must contain at least 1 ${str} character`;
